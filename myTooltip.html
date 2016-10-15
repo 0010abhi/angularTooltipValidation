@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app='tooltipDemoApp'>
+
+  <head>
+    <title>Demo : Tooltip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-controller='tooltipDemoController'>
+    <div class="container caontainer-fluid">
+      <h1>Tooltip Validation</h1>
+      <h4>Demo Created : {{authorName}}</h4>
+      <br/>
+      <div class='col-sm-12'>
+        <div class='col-sm-2'>
+        <a href id='anchorTag' data-toggle="tooltip" title="Tooltip on anchor">
+          <label>Anchor tag</label>
+        </a>
+        </div>
+        <div class='col-sm-4'>
+          <label>No special char</label>
+          <input class="form-control" ng-model='homemodel.textfield1' ng-change="checkError1(homemodel.textfield1);" error-validate validation-rule='noSpecialChar' type="text" data-toggle="tooltip" title="" error-message="homeModelError.error1" />
+        </div>
+        <div class='col-sm-4'>
+          <label>Only Number with 10 digit</label>
+          <input class="form-control" ng-model='homemodel.textfield2' ng-change="checkError2(homemodel.textfield2);" error-validate validation-rule='onlyNumeric' type="text" data-toggle="tooltip" title="" error-message="homeModelError.error2" maxlength="10" />
+        </div>
+        <div class='col-sm-2'>
+        <button class="btn btn-primary" type="text" data-toggle="tooltip" data-placement="top" title="Tooltip on button">Tooltip Button</button>
+        </div>
+      </div>
+      <div class='col-sm-12'>
+        <div class='col-sm-2'>
+        </div>
+        <div class='col-sm-4'>
+          <ul>
+            <li>value = ab , error = 'Welcome, DJ @b!'</li>
+            <li>value = abhi , error = 'Welcome, Abhishek'</li>
+            <li>value = abhis , error = 'Sachdeva'</li>
+            <li>value = admin , error = 'Welcome, Admin'</li>
+            <li>regex dont match error = 'Special characters are not allowed.'</li>
+          </ul>
+        </div>
+        <div class='col-sm-4'>
+          <ul>
+            <li>value = not a 10 digit number , error = 'Only 10 digit number is allowed.'</li>
+            <li>regex dont match error = 'Only numerics are allowed.'</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>
